@@ -24,9 +24,9 @@ const userCount = async()=>
         },
         
         createUser(req,res){
-            User.create(req.bofy)
+            User.create(req.body)
             .then((user)=> res.json(user))
-            .catch((err)=>res.status(500),json(err));
+            .catch((err)=>res.status(500).json(err));
         },
         deleteUser(req,res){
             User.findOneAndRemove({_id: req.params.userId})
@@ -46,3 +46,5 @@ const userCount = async()=>
         }
     
     }
+
+    module.exports = {userCount, getUser, CreateUser, deleteUser}
